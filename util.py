@@ -8,9 +8,9 @@ except:
 	print("Error: Requires numpy from http://www.scipy.org/. Have you installed scipy?")
 	sys.exit() 
 
-def removeDuplicates(list):
+def removeDuplicates(l):
 	""" remove duplicates from a list """
-	return set((item for item in list))
+	return 	list(set(l))
 
 
 def cosine(vector1, vector2):
