@@ -1,23 +1,23 @@
-## 大概流程：##
+## 大概流程：
 
 1. 先用bash Script (CreateDocumentList.sh) 整理成一份有格式的文章
 2. makeVec.py吃進去, 用Parser進行前處理 (去詞性、去重複)，並建立word to index的表， 再用raw term frequency 計算 每份文件的tf向量， 同時也統計df向量，以及用nltk判斷哪些詞是動詞名詞，並將他們的Idx值也記下來，然後輸出成pickle檔，節省計算時間
 3. main.py使用建立好的pickle檔，依題意算出四種組合輸出
 
-## 其中使用的公式、方法:##
-+ tf-idf
+## 其中使用的公式、方法:
++ tf-idf<br>
     最普通的raw term frquency 與 idf，base取10
-+ cos
++ cos<br>
     使用範例程式util.cosine
-+ stopword、strmmer、Parser
++ stopword、strmmer、Parser<br>
     使用範例程式Parser
-+ euclidean distance
++ euclidean distance<b>
     使用numpy.linalg.norm
-+ 分出詞性動詞與名詞
++ 分出詞性動詞與名詞<br>
     使用nltk套件
 
 
-## 相關調整討論##
+## 相關調整討論
 因為一開始不確定誤差大是自己問題還是真實誤差，有做以下調整
 
 ###猜測原因1: 標點符號導致字不相同，比如plan: 與 plan被歸為兩個向量
